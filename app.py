@@ -24,3 +24,11 @@ class GetQuote(BaseModel):
 def sitat():
     id = random.randint(1,len(sitater))
     return {"quote":sitater[id]}
+@app.post("/sitat")
+def add_sitat(data: quote):
+    new_id= len(sitater) + 1
+    sitater[new_id]=data.quote
+    return{
+        "message":"Nytt sutat opprettet"
+        "id":new_id
+    }
