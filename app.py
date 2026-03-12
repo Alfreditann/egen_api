@@ -17,18 +17,18 @@ sitater = {
     10: "The Joestar bloodline will not fall so easily."
 }
  
-class GetQuote(BaseModel):
+class Quote(BaseModel):
     quote: str
  
-@app.get("/sitat",response_model=GetQuote)
+@app.get("/sitat",response_model=Quote)
 def sitat():
     id = random.randint(1,len(sitater))
     return {"quote":sitater[id]}
 @app.post("/sitat")
-def add_sitat(data: quote):
+def add_sitat(data: Quote):
     new_id= len(sitater) + 1
     sitater[new_id]=data.quote
     return{
-        "message":"Nytt sutat opprettet"
+        "message":"Nytt sitat opprettet",
         "id":new_id
     }

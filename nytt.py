@@ -1,4 +1,4 @@
-import reqyests
+import requests
 
 url = "http://192.168.20.35:8000/sitat"
 data = {
